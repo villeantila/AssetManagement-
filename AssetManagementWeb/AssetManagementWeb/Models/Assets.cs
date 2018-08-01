@@ -12,12 +12,12 @@ namespace AssetManagementWeb.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Asset
+    public partial class Assets
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Asset()
+        public Assets()
         {
-            this.AssetLocations = new HashSet<AssetLocation1>();
+            this.AssetLocations = new HashSet<AssetLocations>();
         }
     
         public int Id { get; set; }
@@ -26,6 +26,6 @@ namespace AssetManagementWeb.Models
         public string Model { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AssetLocation1> AssetLocations { get; set; }
+        public virtual ICollection<AssetLocations> AssetLocations { get; set; }
     }
 }

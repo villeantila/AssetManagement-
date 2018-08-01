@@ -12,7 +12,7 @@ namespace AssetManagementWeb.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AssetLocation1
+    public partial class AssetLocations
     {
         public int Id { get; set; }
         public Nullable<int> LocationId { get; set; }
@@ -20,6 +20,6 @@ namespace AssetManagementWeb.Models
         public Nullable<System.DateTime> LastSeen { get; set; }
     
         public virtual AssetLocation AssetLocation { get; set; }
-        public virtual Asset Asset { get; set; }
+        public virtual Assets Assets { get; set; }
     }
 }
