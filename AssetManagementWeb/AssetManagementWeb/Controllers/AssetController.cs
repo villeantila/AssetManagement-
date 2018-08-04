@@ -18,7 +18,11 @@ namespace AssetManagementWeb.Controllers
             return View();
         }
 
-        
+        public ActionResult Test()
+        {
+            return View();
+        }
+
         public ActionResult List()
         {
             List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
@@ -95,7 +99,6 @@ namespace AssetManagementWeb.Controllers
         }
 
       
-
         [HttpPost]
         public JsonResult AssignLocation()
         {
