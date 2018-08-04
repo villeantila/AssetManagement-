@@ -18,7 +18,8 @@ namespace AssetManagementWeb.Controllers
             return View();
         }
 
-  public ActionResult Test()
+        
+        public ActionResult List()
         {
             List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
 
@@ -49,10 +50,42 @@ namespace AssetManagementWeb.Controllers
             {
                 entities.Dispose();
             }
-
             return View(model);
         }
 
+        public ActionResult ListJson()
+        {
+            List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
+
+            AssetsEntities entities = new AssetsEntities();
+            try
+            {
+                List<AssetLocations> assets = entities.AssetLocations.ToList();
+
+                CultureInfo fiFi = new CultureInfo("fi-FI");
+
+                // muodostetaan näkymämalli tietokannan rivien pohjalta
+                foreach (AssetLocations asset in assets)
+                {
+                    LocatedAssetsViewModel view = new LocatedAssetsViewModel();
+                    view.Id = asset.Id;
+                    view.LocationCode = asset.AssetLocation.Code;
+                    view.LocationName = asset.AssetLocation.Name;
+                    view.LocationAdress = asset.AssetLocation.Adress;
+                    view.AssetCode = asset.Assets.Code;
+                    view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
+                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    //view.LastSeen = asset.LastSeen;
+
+                    model.Add(view);
+                }
+            }
+            finally
+            {
+                entities.Dispose();
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
 
 
         // GET: Asset/Details/5
@@ -61,11 +94,7 @@ namespace AssetManagementWeb.Controllers
             return View();
         }
 
-        // GET: Asset/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+      
 
         [HttpPost]
         public JsonResult AssignLocation()
@@ -117,7 +146,5 @@ namespace AssetManagementWeb.Controllers
             var result = new { success = success, error = error };
             return Json(result);
         }
-    
-
     }
 }

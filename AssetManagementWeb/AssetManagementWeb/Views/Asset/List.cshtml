@@ -1,0 +1,99 @@
+﻿@model IEnumerable<AssetManagementWeb.Models.LocatedAssetsViewModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationAdress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastSeen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationAdress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastSeen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetLocation)
+        </td>
+  
+    </tr>
+}
+
+</table>
